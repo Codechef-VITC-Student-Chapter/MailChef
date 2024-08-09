@@ -1,6 +1,6 @@
 function Google(){
     return(
-        <div>
+        <div className="mr-2" >
             <svg width="28" height="28" className="max-sm:w-5" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_241_162)">
             <path d="M27.727 14.3225C27.727 13.3709 27.6499 12.414 27.4853 11.4778H14.28V16.8689H21.842C21.5283 18.6077 20.52 20.1458 19.0436 21.1232V24.6213H23.5551C26.2044 22.1829 27.727 18.582 27.727 14.3225Z" fill="#4285F4"/>

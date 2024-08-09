@@ -1,8 +1,8 @@
 import { useState } from "react";
 import {Link} from "react-router-dom"
-import Ldeg from "./assets/images/LoginSignin_Leftimg.jpeg"
-import Rdeg from "./assets/images/LoginSignin_righttimg.jpeg"
-import Gog from "./Google.jsx"
+import Ldeg from "../assets/images/LoginSignin_Leftimg.jpeg"
+import Rdeg from "../assets/images/LoginSignin_righttimg.jpeg"
+import Gog from "../Components/Google.jsx"
 
 function Login() {
     const [email,setEmail]=useState("");
@@ -50,7 +50,7 @@ function Login() {
              </div>
             
             <div className="w-[100%] flex justify-center pt-4 " ><button className="font-bebas text-1xl h-[5vh] md:w-[21vw] sm:w-[26vw] max-sm:w-[50vw] bg-[#F3F9FA] rounded-xl text-black text-center " ><div className="flex flex-nowrap justify-center sm:pt-1 " ><Gog className=" " />SIGN IN WITH GOOGLE</div></button></div>
-            <div className="w-[100%] pt-9 flex justify-center " ><p className="font-bebas text-[#313957]" >ALREADY HAVE AN ACCOUNT? <span className="text-[#1E4AE9]"><Link to="/Sign" >SIGN IN</Link></span></p></div>
+            <div className="w-[100%] pt-9 flex justify-center " ><p className="font-bebas text-[#313957]" >ALREADY HAVE AN ACCOUNT? <span className="text-[#1E4AE9]"><Link to="/Signup" >SIGN IN</Link></span></p></div>
           </div>
         </div>
   
