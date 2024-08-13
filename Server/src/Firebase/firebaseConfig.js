@@ -1,4 +1,4 @@
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider,signInWithPopup, signOut } from 'firebase/auth';
 import { initializeApp } from "firebase/app";
 import dotenv from 'dotenv';
 
@@ -25,10 +25,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+const provider = new GoogleAuthProvider();
 
 
-export { app, auth };
-
+export { auth, provider, signInWithPopup, signOut };
 
 
 
