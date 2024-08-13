@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import iconCheck from '../assets/Main_Saved2.png';
+
 import iconEnvelope from '../assets/Main_Templates.png';
 import iconDownload from '../assets/Main_Download.png';
 import iconCog from '../assets/Main_Settings.png';
@@ -78,12 +79,14 @@ function Mainpage({ content }) {
                 <Link
                   to="/templates"
                   className="mb-1 flex flex-col items-center"
+
                   onClick={() => {
                     setIsSpecialView(true);
                     setIsMenuOpen(false);
                   }}
                 >
                   <img src={iconEnvelope} alt="Templates" className="md:h-[5rem] md:w-[5.5rem] custom-xss:h-[3.3rem] custom-xss:w-[4rem] custom-xss:mb-[.2rem] custom-xss:ml-3 md:mr-3 md:ml-[.8rem]" />
+
                 </Link>
                 <Link
                   to="/download"
@@ -94,6 +97,7 @@ function Mainpage({ content }) {
                   }}
                 >
                   <img src={iconDownload} alt="Download" className="md:h-[5rem] md:w-[5.5rem] ml-1 custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mt-[1.2rem] custom-xss:ml-3 md:mr-1" />
+
                 </Link>
                 <Link
                   to="/settings"
@@ -104,6 +108,7 @@ function Mainpage({ content }) {
                   }}
                 >
                   <img src={iconCog} alt="Settings" className="md:h-[5rem] md:w-[6.1rem] sm:w-[4rem] custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mb-[0.2rem]" />
+
                 </Link>
               </div>
             </div>
