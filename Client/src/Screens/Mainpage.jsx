@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import iconCheck from '../assets/Main_Saved.png';
+import iconCheck from '../assets/Main_Saved2.png';
+
 import iconEnvelope from '../assets/Main_Templates.png';
 import iconDownload from '../assets/Main_Download.png';
 import iconCog from '../assets/Main_Settings.png';
@@ -73,17 +74,19 @@ function Mainpage({ content }) {
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconCheck} alt="Saved" className="md:h-[4.8rem] md:w-[3.9rem] custom-xss:h-[3rem] custom-xss:w-[2.8rem] custom-xss:mt-0.1" />
+                  <img src={iconCheck} alt="Saved" className="md:h-[7rem] md:w-[5.9rem] custom-xss:h-[4.6rem] custom-xss:w-[4rem] custom-xss:mb-1" />
                 </Link>
                 <Link
                   to="/templates"
-                  className="mb-4 flex flex-col items-center"
+                  className="mb-1 flex flex-col items-center"
+
                   onClick={() => {
                     setIsSpecialView(true);
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconEnvelope} alt="Templates" className="md:h-[5rem] md:w-[5.5rem] custom-xss:h-[3.3rem] custom-xss:w-[4rem] custom-xss:mb-[.3rem] custom-xss:ml-3 md:mr-3 md:ml-[.8rem]" />
+                  <img src={iconEnvelope} alt="Templates" className="md:h-[5rem] md:w-[5.5rem] custom-xss:h-[3.3rem] custom-xss:w-[4rem] custom-xss:mb-[.2rem] custom-xss:ml-3 md:mr-3 md:ml-[.8rem]" />
+
                 </Link>
                 <Link
                   to="/download"
@@ -93,7 +96,8 @@ function Mainpage({ content }) {
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconDownload} alt="Download" className="md:h-[5rem] md:w-[5.5rem] ml-1 custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mt-[.4rem] custom-xss:ml-3 md:mr-1" />
+                  <img src={iconDownload} alt="Download" className="md:h-[5rem] md:w-[5.5rem] ml-1 custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mt-[1.2rem] custom-xss:ml-3 md:mr-1" />
+
                 </Link>
                 <Link
                   to="/settings"
@@ -103,7 +107,8 @@ function Mainpage({ content }) {
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconCog} alt="Settings" className="md:h-[5rem] md:w-[6.1rem] sm:w-[4rem] custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mb-[0.9rem]" />
+                  <img src={iconCog} alt="Settings" className="md:h-[5rem] md:w-[6.1rem] sm:w-[4rem] custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mb-[0.2rem]" />
+
                 </Link>
               </div>
             </div>
