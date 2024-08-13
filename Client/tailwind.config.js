@@ -1,8 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {},
+export const content = [
+  "./src/**/*.{js,jsx,ts,tsx}",
+];
+export const theme = {
+  extend: {},
+  screens: {
+    'max-w-600px': { max: '600px' },
+    'min-w-600px': { min: '600px' },
+    '927px': '927px',
+    '741px': '741px',
+    'custom-xs': '400px',
+    'sm': '640px',
+    'custom-xss': '200px',
+    'md': '768px',
+    'lg': '1024px',
+    'xl': '1280px',
+    '2xl': '1536px',
   },
-  plugins: [],
 };
+export const plugins = [];
