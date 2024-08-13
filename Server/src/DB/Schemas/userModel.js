@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, model } from 'mongoose';
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     firstname: {
         type: String,
         required: true,
@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    Templates: {
+        type: Array,
+        default: [],
+    },
    
 });
 
@@ -34,6 +38,6 @@ userSchema.pre('save', function (next) {
     next();
 });
 
-const User = mongoose.model('User', userSchema);
+const UserModel = model('User', userSchema);
 
-module.exports = User;
+export default UserModel;
