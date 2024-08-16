@@ -1,16 +1,32 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Mainpage from './Screens/Mainpage.jsx';
-import Saved from './Screens/Saved.jsx';
-import Templates from './Screens/Templates.jsx';
-import Download from './Screens/Download.jsx';
-import Settings from './Screens/Settings.jsx';
+import React, { useState } from 'react';
+import HTMLPreviewer from './HTMLPreviewer';
+import './index.css'; // Ensure existing CSS is imported
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sign from "./Screens/Signup.jsx"
-import Login from "./Screens/Login.jsx"
+const App = () => {
+  const [htmlCode, setHtmlCode] = useState('<p>Hello, World!</p>'); // Default HTML code
 
-function App() {
-  return <div className="text-red-950">hi</div>;
-}
+  const handleCodeChange = (event) => {
+    setHtmlCode(event.target.value); // Update state with new HTML code
+  };
 
-export default App
+  return (
+    <div>
+      {/* Text area for entering HTML code */}
+      <textarea
+        value={htmlCode}
+        onChange={handleCodeChange}
+        placeholder="Enter HTML code here"
+        rows="10"
+        cols="80"
+      />
+
+      {/* Preview area */}
+      <div style={{ marginTop: '20px' }}>
+        <h2>HTML Preview</h2>
+        <HTMLPreviewer htmlCode={htmlCode} />
+      </div>
+    </div>
+  );
+};
+
+export default App;
