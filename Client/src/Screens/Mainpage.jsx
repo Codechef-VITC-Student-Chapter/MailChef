@@ -9,6 +9,7 @@ import iconMenu from '../assets/Main_Menu.png';
 import iconExit from '../assets/Main_Exit.png';
 import iconFooter from '../assets/Main_footer.png';
 import iconHeader from '../assets/Main_Header.png';
+import CodeEditor from '../Components/CodeEditor';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
@@ -48,7 +49,9 @@ function Mainpage({ content }) {
       <div className="flex flex-1 flex-col md:flex-row md:p-0">
         {!isSpecialView ? (
           <>
-            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1"></div>
+            <div className="w-full md:w-[47.5%] flex-1">  
+            <CodeEditor />
+            </div>
 
             {/* Spacer for mobile view */}
             <div className="block md:hidden w-full h-4 bg-blue-200"></div>
