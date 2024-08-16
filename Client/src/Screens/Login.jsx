@@ -2,9 +2,9 @@ import { useState } from "react";
 import {Link} from "react-router-dom"
 import Ldeg from "../assets/images/LoginSignin_Leftimg.jpeg"
 import Rdeg from "../assets/images/LoginSignin_righttimg.jpeg"
-import Gog from "../assets/images/Google.png"
-import Pro from "../assets/images/Profile.png"
-import Loc from "../assets/images/Lock.png"
+import Gog from "../assets/images/LoginSignin_Google.png"
+import Pro from "../assets/images/LoginSignin_Profile.png"
+import Loc from "../assets/images/LoginSignin_Lock.png"
 
 function Login() {
     const [email,setEmail]=useState("");
