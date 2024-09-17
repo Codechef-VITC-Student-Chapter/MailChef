@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import iconCheck from '../assets/Main_Saved2.png';
-
 import iconEnvelope from '../assets/Main_Templates.png';
 import iconDownload from '../assets/Main_Download.png';
 import iconCog from '../assets/Main_Settings.png';
@@ -9,14 +8,17 @@ import iconMenu from '../assets/Main_Menu.png';
 import iconExit from '../assets/Main_Exit.png';
 import iconFooter from '../assets/Main_footer.png';
 import iconHeader from '../assets/Main_Header.png';
+import Templates from './Templates';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTemplatesVisible, setIsTemplatesVisible] = useState(false);
 
   const handleExit = () => {
     setIsSpecialView(false);
     setIsMenuOpen(false);
+    setIsTemplatesVisible(false);
   };
 
   return (
@@ -25,7 +27,7 @@ function Mainpage({ content }) {
       <header className="bg-blue-200 flex items-center justify-between md:p-9 custom-xss:p-7 relative">
         <div className="flex items-center w-full justify-between">
           {/* Menu Icon */}
-          <button className=" md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <img src={iconMenu} alt="Menu" className="custom-xss:h-4" />
           </button>
           {/* Centered Header Image */}
@@ -38,7 +40,7 @@ function Mainpage({ content }) {
           </div>
 
           {/* Exit Icon */}
-          <button className=" ml-auto" onClick={handleExit}>
+          <button className="ml-auto" onClick={handleExit}>
             <img src={iconExit} alt="Exit" className="md:h-12 custom-xss:h-5" />
           </button>
         </div>
@@ -48,14 +50,16 @@ function Mainpage({ content }) {
       <div className="flex flex-1 flex-col md:flex-row md:p-0">
         {!isSpecialView ? (
           <>
-            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1"></div>
+            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1">
+              {/* Main content area */}
+            </div>
 
             {/* Spacer for mobile view */}
             <div className="block md:hidden w-full h-4 bg-blue-200"></div>
 
             {/* Sidebar/Menu Icon */}
             <div
-              className={`w-full 2xl:w-[6%] md:w-[12%] lg:w-[9%] bg-white flex flex-col items-center py-2  ${
+              className={`w-full 2xl:w-[6%] md:w-[12%] lg:w-[9%] bg-white flex flex-col items-center py-2 ${
                 isMenuOpen ? 'flex' : 'hidden md:flex'
               }`}
             >
@@ -76,18 +80,15 @@ function Mainpage({ content }) {
                 >
                   <img src={iconCheck} alt="Saved" className="md:h-[7rem] md:w-[5.9rem] custom-xss:h-[4.6rem] custom-xss:w-[4rem] custom-xss:mb-1" />
                 </Link>
-                <Link
-                  to="/templates"
+                <button
                   className="mb-1 flex flex-col items-center"
-
                   onClick={() => {
-                    setIsSpecialView(true);
+                    setIsTemplatesVisible(true);
                     setIsMenuOpen(false);
                   }}
                 >
                   <img src={iconEnvelope} alt="Templates" className="md:h-[5rem] md:w-[5.5rem] custom-xss:h-[3.3rem] custom-xss:w-[4rem] custom-xss:mb-[.2rem] custom-xss:ml-3 md:mr-3 md:ml-[.8rem]" />
-
-                </Link>
+                </button>
                 <Link
                   to="/download"
                   className="mb-6 flex flex-col items-center"
@@ -97,7 +98,6 @@ function Mainpage({ content }) {
                   }}
                 >
                   <img src={iconDownload} alt="Download" className="md:h-[5rem] md:w-[5.5rem] ml-1 custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mt-[1.2rem] custom-xss:ml-3 md:mr-1" />
-
                 </Link>
                 <Link
                   to="/settings"
@@ -108,12 +108,22 @@ function Mainpage({ content }) {
                   }}
                 >
                   <img src={iconCog} alt="Settings" className="md:h-[5rem] md:w-[6.1rem] sm:w-[4rem] custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mb-[0.2rem]" />
-
                 </Link>
               </div>
             </div>
 
-            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1"></div>
+            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1">
+              {/* Placeholder for content */}
+            </div>
+
+            {/* Templates Modal */}
+            {isTemplatesVisible && (
+              <div className="fixed inset-0 flex items-center justify-end z-50">
+                <div className="pl-60 w-11/12 max-w-4xl">
+                  <Templates onClose={() => setIsTemplatesVisible(false)} />
+                </div>
+              </div>
+            )}
           </>
         ) : (
           <div className="flex-1">{content}</div>

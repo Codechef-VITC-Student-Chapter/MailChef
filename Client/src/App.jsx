@@ -4,8 +4,6 @@ import Saved from './Screens/Saved.jsx';
 import Templates from './Screens/Templates.jsx';
 import Download from './Screens/Download.jsx';
 import Settings from './Screens/Settings.jsx';
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sign from "./Screens/Signup.jsx"
 import Login from "./Screens/Login.jsx"
 
@@ -22,3 +20,5 @@ function App() {
 }
 
 export default App
+
+

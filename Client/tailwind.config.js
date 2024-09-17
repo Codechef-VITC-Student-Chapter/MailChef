@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export const content = ["./src/**/*.{js,jsx,ts,tsx}"];
 export const theme = {
-  extend: {},
+  extend: {
+    colors: {
+      customBg: "#303031",
+      customBg2: "#60606078",
+      textC: "#FFFFFF75",
+    },
+  },
   screens: {
     "max-w-600px": { max: "600px" },
     "min-w-600px": { min: "600px" },
