@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import iconCheck from '../assets/Main_Saved2.png';
+import iconCheck from '../assets/Main_Saved.png';
 import iconEnvelope from '../assets/Main_Templates.png';
 import iconDownload from '../assets/Main_Download.png';
 import iconCog from '../assets/Main_Settings.png';
@@ -9,6 +9,7 @@ import iconExit from '../assets/Main_Exit.png';
 import iconFooter from '../assets/Main_footer.png';
 import iconHeader from '../assets/Main_Header.png';
 import Templates from './Templates';
+import iconChat from '../assets/chatbot.png';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
@@ -70,6 +71,7 @@ function Mainpage({ content }) {
 
               {/* Sidebar Links */}
               <div className="flex md:flex-col items-center">
+                {/* Saved */}
                 <Link
                   to="/saved"
                   className="mb-5 flex flex-col items-center"
@@ -78,27 +80,49 @@ function Mainpage({ content }) {
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconCheck} alt="Saved" className="md:h-[7rem] md:w-[5.9rem] custom-xss:h-[4.6rem] custom-xss:w-[4rem] custom-xss:mb-1" />
+                  <img src={iconCheck} alt="Saved" className="md:h-[4rem] md:w-[4rem] custom-xss:h-[2rem] custom-xss:w-[2rem] " />
+                  <p className="mt-2 text-center text-blue-800 font-semibold custom-xss:text-[0.69rem] md:text-[1.2rem]">Saved</p>
                 </Link>
-                <button
-                  className="mb-1 flex flex-col items-center"
+                {/* Templates */}
+                <Link
+                  to="/templates"
+                  className="mb-5 flex flex-col items-center"
                   onClick={() => {
                     setIsTemplatesVisible(true);
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconEnvelope} alt="Templates" className="md:h-[5rem] md:w-[5.5rem] custom-xss:h-[3.3rem] custom-xss:w-[4rem] custom-xss:mb-[.2rem] custom-xss:ml-3 md:mr-3 md:ml-[.8rem]" />
-                </button>
+                  <img src={iconEnvelope} alt="Templates" className="md:h-[4rem] md:w-[4rem] custom-xss:h-[2rem] custom-xss:w-[2rem] ml-3 md:m-0" />
+                  <p className="mt-2 text-center text-blue-800 font-semibold ml-3 md:m-0 custom-xss:text-[0.69rem] md:text-[1.2rem]">Templates</p>
+                </Link>
+
+                {/* Download */}
                 <Link
                   to="/download"
-                  className="mb-6 flex flex-col items-center"
+                  className="mb-5 flex flex-col items-center"
                   onClick={() => {
                     setIsSpecialView(true);
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconDownload} alt="Download" className="md:h-[5rem] md:w-[5.5rem] ml-1 custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mt-[1.2rem] custom-xss:ml-3 md:mr-1" />
+                  <img src={iconDownload} alt="Download" className="md:h-[4rem] md:w-[5rem] custom-xss:h-[2rem] custom-xss:w-[2rem] ml-3 md:m-0" />
+                  <p className="mt-2 text-center text-blue-800 font-semibold ml-3 md:m-0 custom-xss:text-[0.69rem] md:text-[1.2rem]">Download</p>
                 </Link>
+
+                {/* Chatbot */}
+                <Link
+                  to="/chat"
+                  className="mb-5 flex flex-col items-center"
+                  onClick={() => {
+                    setIsSpecialView(true);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  <img src={iconChat} alt="Chatbot" className="md:h-[5rem] md:w-[5.5rem] custom-xss:h-[2rem] custom-xss:w-[2rem] ml-3 md:m-0" />
+                  <p className="mt-2 text-center text-blue-800 font-semibold ml-3 md:m-0 custom-xss:text-[0.69rem] md:text-[1.2rem]">Chatbot</p>
+                </Link>
+
+                {/* Settings */}
                 <Link
                   to="/settings"
                   className="flex flex-col items-center"
@@ -107,7 +131,8 @@ function Mainpage({ content }) {
                     setIsMenuOpen(false);
                   }}
                 >
-                  <img src={iconCog} alt="Settings" className="md:h-[5rem] md:w-[6.1rem] sm:w-[4rem] custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mb-[0.2rem]" />
+                  <img src={iconCog} alt="Settings" className="md:h-[3.1rem] md:w-[3.5rem] custom-xss:h-[1.7rem] custom-xss:w-[2rem] mb-2 ml-3 md:m-0" />
+                  <p className="mb-3 text-center text-blue-800 font-semibold ml-3 md:m-0 custom-xss:text-[0.69rem] md:text-[1.2rem]">Settings</p>
                 </Link>
               </div>
             </div>
@@ -132,7 +157,7 @@ function Mainpage({ content }) {
 
       {/* Footer */}
       <footer className="bg-blue-200 text-xl flex justify-center py-5 font-bold">
-        <img src={iconFooter} alt="Footer" className="h-6 w-[10rem] custom-xss:h-[0.7rem] custom-xss:w-[6rem] md:w-[13rem] md:h-[1.3rem]" />
+        <img src={iconFooter} alt="Footer" className="h-6 w-[10rem] custom-xss:h-[0.7rem] custom-xss:w-[6rem] md:w-[14rem] md:h-[1.3rem]" />
       </footer>
     </div>
   );
