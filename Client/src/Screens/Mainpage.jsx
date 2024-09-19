@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import iconCheck from '../assets/Main_Saved2.png';
+import Chat from './Chat';
 
 import iconEnvelope from '../assets/Main_Templates.png';
 import iconDownload from '../assets/Main_Download.png';
@@ -9,15 +10,20 @@ import iconMenu from '../assets/Main_Menu.png';
 import iconExit from '../assets/Main_Exit.png';
 import iconFooter from '../assets/Main_footer.png';
 import iconHeader from '../assets/Main_Header.png';
+import iconBot from '../assets/Main_Chatbot.png';
+import chatbot  from '../assets/chatbot.png';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isChatBotVisible, setIsChatBotVisible] = useState(false);
 
   const handleExit = () => {
     setIsSpecialView(false);
     setIsMenuOpen(false);
   };
+
+  const [showBot, setShowBot] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -110,10 +116,26 @@ function Mainpage({ content }) {
                   <img src={iconCog} alt="Settings" className="md:h-[5rem] md:w-[6.1rem] sm:w-[4rem] custom-xss:h-[3rem] custom-xss:w-[4.3rem] custom-xss:mb-[0.2rem]" />
 
                 </Link>
+                <div className="flex flex-col items-center flex-grow"
+                  onClick={() => {setShowBot(true)}}
+                >
+                  <img src={iconBot} alt="bot-icon" />
+                  <img src={chatbot} alt="chat-bot" className='w-14' />
+                </div>
               </div>
             </div>
 
             <div className="w-full md:w-[47.5%] bg-gray-500 flex-1"></div>
+
+            {/* ChatBot Modal */}
+            {showBot && (
+              <div className="fixed inset-0 flex justify-end z-50">
+                <div className="pl-60 w-11/12 max-w-4xl">
+                  <Chat onClose={() => setShowBot(false)} />
+                </div>
+              </div>
+            )}
+
           </>
         ) : (
           <div className="flex-1">{content}</div>
