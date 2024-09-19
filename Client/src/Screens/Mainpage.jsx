@@ -8,15 +8,18 @@ import iconMenu from '../assets/Main_Menu.png';
 import iconExit from '../assets/Main_Exit.png';
 import iconFooter from '../assets/Main_footer.png';
 import iconHeader from '../assets/Main_Header.png';
+import Templates from './Templates';
 import iconChat from '../assets/chatbot.png';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTemplatesVisible, setIsTemplatesVisible] = useState(false);
 
   const handleExit = () => {
     setIsSpecialView(false);
     setIsMenuOpen(false);
+    setIsTemplatesVisible(false);
   };
 
   return (
@@ -25,7 +28,7 @@ function Mainpage({ content }) {
       <header className="bg-blue-200 flex items-center justify-between md:p-9 custom-xss:p-7 relative">
         <div className="flex items-center w-full justify-between">
           {/* Menu Icon */}
-          <button className=" md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             <img src={iconMenu} alt="Menu" className="custom-xss:h-4" />
           </button>
           {/* Centered Header Image */}
@@ -38,7 +41,7 @@ function Mainpage({ content }) {
           </div>
 
           {/* Exit Icon */}
-          <button className=" ml-auto" onClick={handleExit}>
+          <button className="ml-auto" onClick={handleExit}>
             <img src={iconExit} alt="Exit" className="md:h-12 custom-xss:h-5" />
           </button>
         </div>
@@ -48,14 +51,16 @@ function Mainpage({ content }) {
       <div className="flex flex-1 flex-col md:flex-row md:p-0">
         {!isSpecialView ? (
           <>
-            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1"></div>
+            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1">
+              {/* Main content area */}
+            </div>
 
             {/* Spacer for mobile view */}
             <div className="block md:hidden w-full h-4 bg-blue-200"></div>
 
             {/* Sidebar/Menu Icon */}
             <div
-              className={`w-full 2xl:w-[6%] md:w-[12%] lg:w-[9%] bg-white flex flex-col items-center py-2  ${
+              className={`w-full 2xl:w-[6%] md:w-[12%] lg:w-[9%] bg-white flex flex-col items-center py-2 ${
                 isMenuOpen ? 'flex' : 'hidden md:flex'
               }`}
             >
@@ -78,13 +83,12 @@ function Mainpage({ content }) {
                   <img src={iconCheck} alt="Saved" className="md:h-[4rem] md:w-[4rem] custom-xss:h-[2rem] custom-xss:w-[2rem] " />
                   <p className="mt-2 text-center text-blue-800 font-semibold custom-xss:text-[0.69rem] md:text-[1.2rem]">Saved</p>
                 </Link>
-
                 {/* Templates */}
                 <Link
                   to="/templates"
                   className="mb-5 flex flex-col items-center"
                   onClick={() => {
-                    setIsSpecialView(true);
+                    setIsTemplatesVisible(true);
                     setIsMenuOpen(false);
                   }}
                 >
@@ -133,7 +137,18 @@ function Mainpage({ content }) {
               </div>
             </div>
 
-            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1"></div>
+            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1">
+              {/* Placeholder for content */}
+            </div>
+
+            {/* Templates Modal */}
+            {isTemplatesVisible && (
+              <div className="fixed inset-0 flex items-center justify-end z-50">
+                <div className="pl-60 w-11/12 max-w-4xl">
+                  <Templates onClose={() => setIsTemplatesVisible(false)} />
+                </div>
+              </div>
+            )}
           </>
         ) : (
           <div className="flex-1">{content}</div>
