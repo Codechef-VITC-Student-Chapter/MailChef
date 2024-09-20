@@ -8,6 +8,7 @@ import iconMenu from '../assets/Main_Menu.png';
 import iconExit from '../assets/Main_Exit.png';
 import iconFooter from '../assets/Main_footer.png';
 import iconHeader from '../assets/Main_Header.png';
+import CodeEditor from '../Components/CodeEditor';
 import Templates from './Templates';
 import iconChat from '../assets/chatbot.png';
 
@@ -51,8 +52,9 @@ function Mainpage({ content }) {
       <div className="flex flex-1 flex-col md:flex-row md:p-0">
         {!isSpecialView ? (
           <>
-            <div className="w-full md:w-[47.5%] bg-gray-500 flex-1">
-              {/* Main content area */}
+            <div className="w-full md:w-[47.5%] flex-1">  
+            <CodeEditor />
+
             </div>
 
             {/* Spacer for mobile view */}
