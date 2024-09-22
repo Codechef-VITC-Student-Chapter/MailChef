@@ -11,17 +11,27 @@ import iconHeader from '../assets/Main_Header.png';
 import CodeEditor from '../Components/CodeEditor';
 import Templates from './Templates';
 import iconChat from '../assets/chatbot.png';
+import { useRecoilValue } from 'recoil';
+import { cssCodeState, htmlCodeState } from '../atom';
+import HTMLPreviewer from '../Components/Htmlpr';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isTemplatesVisible, setIsTemplatesVisible] = useState(false);
+  const htmlCode = useRecoilValue(htmlCodeState);
+  const cssCode = useRecoilValue(cssCodeState);
 
   const handleExit = () => {
     setIsSpecialView(false);
     setIsMenuOpen(false);
     setIsTemplatesVisible(false);
   };
+
+  const handleCodeChange = (event) => {
+    setHtmlCode(event.target.value); // Update state with new HTML code
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -52,9 +62,8 @@ function Mainpage({ content }) {
       <div className="flex flex-1 flex-col md:flex-row md:p-0">
         {!isSpecialView ? (
           <>
-            <div className="w-full md:w-[47.5%] flex-1">  
-            <CodeEditor />
-
+            <div className="w-full md:w-[47.5%] flex-1">
+              <CodeEditor />
             </div>
 
             {/* Spacer for mobile view */}
@@ -62,9 +71,8 @@ function Mainpage({ content }) {
 
             {/* Sidebar/Menu Icon */}
             <div
-              className={`w-full 2xl:w-[6%] md:w-[12%] lg:w-[9%] bg-white flex flex-col items-center py-2 ${
-                isMenuOpen ? 'flex' : 'hidden md:flex'
-              }`}
+              className={`w-full 2xl:w-[6%] md:w-[12%] lg:w-[9%] bg-white flex flex-col items-center py-2 ${isMenuOpen ? 'flex' : 'hidden md:flex'
+                }`}
             >
               {/* Menu Icon on top (Hidden in mobile view) */}
               <button className="m-4 md:mb-6 hidden md:block" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -141,6 +149,10 @@ function Mainpage({ content }) {
 
             <div className="w-full md:w-[47.5%] bg-gray-500 flex-1">
               {/* Placeholder for content */}
+              <div className='font-black text-4xl'>grrr</div>
+              <div className='mt-4'>
+                <HTMLPreviewer htmlCode={htmlCode} cssCode={cssCode} />
+              </div>
             </div>
 
             {/* Templates Modal */}

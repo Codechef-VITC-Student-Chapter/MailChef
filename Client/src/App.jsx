@@ -5,12 +5,13 @@ import Templates from './Screens/Templates.jsx';
 import Download from './Screens/Download.jsx';
 import Settings from './Screens/Settings.jsx';
 import Chatbot from './Screens/Chatbot.jsx'; // Import Chatbot component
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Mainpage />} />
+        <Route path="/" element={<RecoilRoot><Mainpage /></RecoilRoot>} />
         <Route path="/saved" element={<Mainpage content={<Saved />} />} />
         <Route path="/templates" element={<Mainpage content={<Templates />} />} />
         <Route path="/download" element={<Mainpage content={<Download />} />} />

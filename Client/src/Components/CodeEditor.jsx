@@ -5,12 +5,14 @@ import 'prismjs/themes/prism-okaidia.css';
 import 'prismjs/components/prism-core';
 import 'prismjs/components/prism-markup'; // Base language for HTML
 import 'prismjs/components/prism-css'; // For CSS support
+import { useRecoilState } from 'recoil';
+import {cssCodeState, htmlCodeState} from '../atom';
 
 const selfClosingTags = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'];
 
 const CodeEditor = () => {
-  const [htmlCode, setHtmlCode] = useState(`<h1>Hello Creators! Design Your Dream Posters</h1>\n<h2>Design. Code. Display</h2>`);
-  const [cssCode, setCssCode] = useState(`body{\n\tfont-family: system-ui;\n\tbackground: #FFFFFF;\n\tcolor: black;\n\ttext-align: center;\n}`);
+  const [htmlCode, setHtmlCode] = useRecoilState(htmlCodeState);
+  const [cssCode, setCssCode] = useRecoilState(cssCodeState);
 
   const handleKeyDown = (e, setCode, code, isCss = false) => {
     const { selectionStart, selectionEnd } = e.target;
