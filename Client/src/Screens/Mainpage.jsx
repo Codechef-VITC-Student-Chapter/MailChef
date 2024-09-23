@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import iconCheck from '../assets/Main_Saved.png';
 import iconEnvelope from '../assets/Main_Templates.png';
@@ -11,16 +11,14 @@ import iconHeader from '../assets/Main_Header.png';
 import CodeEditor from '../Components/CodeEditor';
 import Templates from './Templates';
 import iconChat from '../assets/chatbot.png';
-import { useRecoilValue } from 'recoil';
-import { cssCodeState, htmlCodeState } from '../atom';
 import HTMLPreviewer from '../Components/Htmlpr';
+import { CodeContext } from '../codeContext';
 
 function Mainpage({ content }) {
   const [isSpecialView, setIsSpecialView] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isTemplatesVisible, setIsTemplatesVisible] = useState(false);
-  const htmlCode = useRecoilValue(htmlCodeState);
-  const cssCode = useRecoilValue(cssCodeState);
+  const { htmlCode, cssCode } = useContext(CodeContext);
 
   const handleExit = () => {
     setIsSpecialView(false);

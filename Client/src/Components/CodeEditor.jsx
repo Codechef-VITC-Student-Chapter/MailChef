@@ -1,18 +1,17 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
 import 'prismjs/themes/prism-okaidia.css';
 import 'prismjs/components/prism-core';
 import 'prismjs/components/prism-markup'; // Base language for HTML
 import 'prismjs/components/prism-css'; // For CSS support
-import { useRecoilState } from 'recoil';
-import {cssCodeState, htmlCodeState} from '../atom';
+
+import { CodeContext } from '../codeContext';
 
 const selfClosingTags = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'];
 
 const CodeEditor = () => {
-  const [htmlCode, setHtmlCode] = useRecoilState(htmlCodeState);
-  const [cssCode, setCssCode] = useRecoilState(cssCodeState);
+  const { htmlCode, setHtmlCode, cssCode, setCssCode } = useContext(CodeContext);
 
   const handleKeyDown = (e, setCode, code, isCss = false) => {
     const { selectionStart, selectionEnd } = e.target;
